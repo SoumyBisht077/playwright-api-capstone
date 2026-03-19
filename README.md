@@ -1,6 +1,6 @@
 # Playwright API Capstone
 
-![CI](https://github.com/soumbish/playwright-api-capstone/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/SoumyBisht077/playwright-api-capstone/actions/workflows/ci.yml/badge.svg)
 
 End-to-end API test suite built with [@playwright/test](https://playwright.dev/docs/api-testing) against [DummyJSON](https://dummyjson.com).
 
