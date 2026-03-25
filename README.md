@@ -78,11 +78,11 @@ Copy `.env.example` to `.env` and fill in your values before running locally.
 
 ## Test Summary
 
-| File                | Tests | Coverage                                      |
-|---------------------|-------|-----------------------------------------------|
-| `users.spec.ts`     | 12    | CRUD, schema, negative, headers, lifecycle    |
-| `products.spec.ts`  | 10    | List, filter, pagination, perf, resilience    |
-| `crud-chain.spec.ts`| 1     | End-to-end Create→Get→Update→Delete chain     |
-| `auth.spec.ts`      | 6     | Login edge cases, bearer token, 401 guards    |
-| **Total**           | **29**|                                               |
+| File                | Tests | Coverage                                                  |
+|---------------------|-------|-----------------------------------------------------------|
+| `users.spec.ts`     | 11    | CRUD, schema, negative, headers                           |
+| `products.spec.ts`  | 10    | List, filter, pagination, perf, resilience                |
+| `crud-chain.spec.ts`| 1     | End-to-end Create→Get→Update→Delete chain                 |
+| `auth.spec.ts`      | 6     | Login edge cases, bearer token, 401 guards                |
+| **Total**           | **28**|                                                           |
 

@@ -35,13 +35,13 @@ test.describe('@smoke @regression @api Auth', () => {
 
   test('@smoke login with valid credentials returns token', async ({ request }) => {
     const res = await request.post(`${BASE}/auth/login`, {
-      data: { username: 'emilys', password: 'emilyspass' },
+      data: { username: process.env.AUTH_USERNAME, password: process.env.AUTH_PASSWORD },
     });
     expect(res.status()).toBe(200);
     const body = await res.json();
     expect(body).toHaveProperty('accessToken');
     expect(body).toHaveProperty('refreshToken');
-    expect(body.username).toBe('emilys');
+    expect(body.username).toBe(process.env.AUTH_USERNAME);
   });
 
   // ── BEARER TOKEN USAGE ──────────────────────────────────────────────────────
