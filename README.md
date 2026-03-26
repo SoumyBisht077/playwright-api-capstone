@@ -80,9 +80,9 @@ Copy `.env.example` to `.env` and fill in your values before running locally.
 
 | File                | Tests | Coverage                                                  |
 |---------------------|-------|-----------------------------------------------------------|
-| `users.spec.ts`     | 11    | CRUD, schema, negative, headers                           |
+| `users.spec.ts`     | 13    | CRUD, schema, negative, headers, lifecycle hooks          |
 | `products.spec.ts`  | 10    | List, filter, pagination, perf, resilience                |
 | `crud-chain.spec.ts`| 1     | End-to-end Create→Get→Update→Delete chain                 |
 | `auth.spec.ts`      | 6     | Login edge cases, bearer token, 401 guards                |
-| **Total**           | **28**|                                                           |
+| **Total**           | **30**|                                                           |
 

@@ -112,3 +112,53 @@ test.describe('@smoke @regression @api Users Module', () => {
   });
 
 });
+
+// ── LIFECYCLE HOOKS ──────────────────────────────────────────────────────────
+
+test.describe('@regression @api Users Lifecycle', () => {
+
+  let userIds: number[] = [];
+  let currentUser: Record<string, unknown> = {};
+
+  test.beforeAll(async ({ usersApi }) => {
+    
+    const res = await usersApi.create(newUser());
+    expect(res.status()).toBe(201);
+    const body = await res.json();
+    userIds.push(body.id);
+    console.log(`[beforeAll] created user id: ${body.id}`);
+  });
+
+  test.afterAll(async ({ usersApi }) => {
+    // cleans up every user created during the block
+    for (const id of userIds) {
+      await usersApi.remove(id);
+      console.log(`[afterAll] removed user id: ${id}`);
+    }
+    userIds = [];
+  });
+
+  test.beforeEach(() => {
+    // resets currentUser so each test starts with a clean state
+    currentUser = {};
+    console.log('[beforeEach] currentUser reset');
+  });
+
+  test.afterEach(() => {
+    console.log(`[afterEach] currentUser at end of test: ${JSON.stringify(currentUser)}`);
+  });
+
+  test('@regression lifecycle — created user id is defined', async () => {
+    // verifies that beforeAll successfully created a user and saved the id
+    expect(userIds.length).toBeGreaterThan(0);
+    expect(userIds[0]).toBeDefined();
+    currentUser = { id: userIds[0] };
+  });
+
+  test('@regression lifecycle — currentUser is reset between tests', async () => {
+    // verifies that beforeEach reset currentUser to an empty object
+    expect(currentUser).toEqual({});
+    currentUser = { id: userIds[0], status: 'checked' };
+  });
+
+});
